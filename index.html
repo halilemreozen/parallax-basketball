@@ -81,25 +81,30 @@
 
       }
       .player--glow{
-      -webkit-animation: saturate 2s, saturate-animation 3s infinite;
-        -webkit-animation-delay: 0s, 2s;
+      -webkit-animation: fade 1s forwards;
+        -webkit-animation-delay: 0s;
+      }
 
+      .player--unglow{
+        -webkit-animation: unfade 1s forwards;
+        -webkit-animation-delay: 0s;
       }
 
       .focus{
         -webkit-filter: sepia(1) saturate(100%) drop-shadow(0px 0px 80px red);
       }
 
-      @-webkit-keyframes saturate {
+      @-webkit-keyframes fade {
          0%{  -webkit-filter:sepia(0) saturate(100%) blur(0px);opacity:1;  }
-         100% {   -webkit-filter: sepia(1) saturate(100%) blur(3px);opacity:0.6; }
+         /*100% {   -webkit-filter: sepia(0.9) saturate(100%) blur(3px);opacity:0.6; }*/
+         100% {   -webkit-filter: saturate(80%); opacity:0.4; }
       }
 
-      @-webkit-keyframes saturate-animation {
-        0%,100%{ -webkit-filter: sepia(1) saturate(100%) blur(3px);opacity:0.6; }
-        50% {  -webkit-filter: sepia(1) saturate(200%) blur(3px);opacity:0.6; }
+      @-webkit-keyframes unfade {
+        0%{  -webkit-filter: saturate(80%); opacity:0.4; }
+        /*100% {   -webkit-filter: sepia(0.9) saturate(100%) blur(3px);opacity:0.6; }*/
+        100% {    -webkit-filter:sepia(0) saturate(100%) blur(0px);opacity:1; }
       }
-
 
       .sub-info{
         width:100%;
@@ -272,6 +277,7 @@
 
       $('.player').mouseenter(function(){
         $('.player').not(this).each(function(){
+          $(this).removeClass("player--unglow");
           $(this).addClass("player--glow");
         });
         $(this).addClass("focus");
@@ -280,6 +286,7 @@
       $('.player').mouseleave(function(){
         $('.player').not(this).each(function(){
           $(this).removeClass("player--glow");
+          $(this).addClass("player--unglow");
         });
         $(this).removeClass("focus");
       });
