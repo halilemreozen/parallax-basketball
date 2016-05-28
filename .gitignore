@@ -2,6 +2,10 @@
 Thumbs.db
 ehthumbs.db
 
+.idea/
+.localhistory/
+.vs
+
 # Folder config file
 Desktop.ini
 
