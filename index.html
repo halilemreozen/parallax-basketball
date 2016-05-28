@@ -49,7 +49,7 @@
 
       }
       .player--three{
-        right:45%;
+        right:55%;
         top:20%;
       }
       .player--three img{
@@ -82,7 +82,7 @@
       .player--glow{
        /* -webkit-animation: saturate 1s, saturate-animation 3s infinite;
         -webkit-animation-delay: 0s, 1s;*/
-        -webkit-filter:blur(3px) saturate(20%);opacity: .5;
+
       }
 
       .focus{
@@ -90,8 +90,8 @@
       }
 
       @-webkit-keyframes saturate {
-         0%{ -webkit-filter: sepia(0) saturate(100%) blur(0px) hue-rotate(0deg); }
-         100% {  -webkit-filter: sepia(1) saturate(100%) blur(3px) ; opacity:0.6; }
+         0%{ }
+         100% {   -webkit-filter:blur(3px) saturate(20%);opacity: .5; }
       }
 
       @-webkit-keyframes saturate-animation {
@@ -114,16 +114,16 @@
        </div>
   
         <div class="player player--one">
-          <li class="layer animation" data-depth="0.40"><img data-img="james16.png" src="james16.png" alt="16"></li>
+          <li class="layer animation" data-depth="0.40"><img src="player1.png" alt="16"></li>
         </div>
         <div class="player player--two">
-          <li class="layer animation" data-depth="0.30"><img src="james15.png" alt="15"></li>
+          <li class="layer animation" data-depth="0.30"><img src="player2.png" alt="15"></li>
         </div>
         <div class="player player--three">
-          <li class="layer animation" data-depth="0.60"><img src="james13.png" alt="13"></li>
+          <li class="layer animation" data-depth="0.60"><img src="player3.png" alt="13"></li>
         </div>
         <div class="player player--four">
-          <li class="layer animation" data-depth="0.90"><img src="james14.png" alt="14"></li>
+          <li class="layer animation" data-depth="0.90"><img src="player4.png" alt="14"></li>
         </div>
       </div>
     </ul>
@@ -148,6 +148,10 @@
         $(this).removeClass("focus");
       });
     </script>
+
+
+    <!-- svg clip masks -->
+
     <svg height="0" width="0">
       <defs>
         <clipPath id="james14">
