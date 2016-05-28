@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <title>Parallax Demo</title>
 
 
@@ -100,11 +101,145 @@
       }
 
 
+      .sub-info{
+        width:100%;
+
+        background: -moz-linear-gradient(left, rgba(0,67,224,1) 0%, rgba(125,185,232,0) 100%);
+        background: -webkit-linear-gradient(left, rgba(0,67,224,1) 0%,rgba(125,185,232,0) 100%);
+        background: linear-gradient(to right, rgba(0,67,224,1) 0%,rgba(125,185,232,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0043e0', endColorstr='#007db9e8',GradientType=1 );
+
+        display: block;
+        height:250px;
+        bottom:0;
+        left:0;
+        position: absolute;
+        z-index:999;
+        -webkit-filter:blur(5px);
+      }
+
+
+      .selected-player{
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        height:195px;
+        bottom:2%;
+        position: absolute;
+        z-index:99999;
+        width:40vw;
+        left:calc(50% - 20vw);
+        background-color:rgba(32, 39, 44,.8);
+        border:1px solid rgba(52, 59, 64,.8);
+        -webkit-border-radius:.5em .5em;
+        -moz-border-radius:.5em .5em;
+        border-radius:.5em .5em;
+        padding:10px;
+        font-family: 'Roboto', sans-serif;
+        text-shadow: 1px 1px 2px #000;
+        -webkit-box-shadow:0 0 20px rgba(12, 19, 24,.8);
+      }
+      .player-info-wrapper{
+        color:white;
+      }
+
+      .player-info-name{
+        font-weight:bolder;
+        font-size: 2rem;
+        padding:0;
+        margin:0;
+        padding-left:5px;
+      }
+
+      .player-info-stat{
+        padding-left: 8px;
+      }
+
+      .player-stat-header{
+        color:lightsteelblue;
+      }
+
+      .avatar-img-wrapper{
+        display: inline-block;
+        border:3px solid gold;
+        -webkit-border-radius:.5em .5em;
+        -moz-border-radius:.5em .5em;
+        border-radius:.5em .5em;
+        height:185px;
+      }
+
+      .pr1{
+        padding-right: 1em;
+      }
+
+      .pr2{
+        padding-right: 2em;
+      }
+
+      .pr2-3{
+        padding-right: 2.3em;
+      }
+
+      .pr3{
+        padding-right: 3em;
+      }
+
+      .pr4{
+        padding-right: 4em;
+      }
+
+      .pr5{
+        padding-right: 5em;
+      }
+      .pr6{
+        padding-right: 6em;
+      }
+      .pr7{
+        padding-right: 7em;
+      }
+      .pr8{
+        padding-right: 8em;
+      }
+      .pr9{
+        padding-right: 9em;
+      }
+      .pr10{
+        padding-right: 10em;
+      }
+
+
+      .avatar-img-wrapper img{
+        width:100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .bracket{
+        border-right: 1px solid rgba(255,255,255,0.5);
+        margin-right: 1em;
+        margin-left: 1em;
+        -webkit-border-radius:1em 1em;
+      }
+
 
 
     </style>
   </head>
   <body>
+
+  <div class="sub-info"></div>
+    <div class="selected-player">
+      <div class="avatar-img-wrapper">
+        <img src="./russell-avatar.png">
+      </div>
+      <div class="player-info-wrapper">
+        <p class="player-info-name">Russell Westbrook</p>
+        <p class="player-info-stat">#0 PG <span class="bracket"></span>  6' 3", 200 lbs <span class="bracket"></span> Oklahoma City Thunder</p>
+        <p class="player-info-stat"><span class="player-stat-header pr2-3">Born</span>  Nov 12, 1988 in Long Beach, CA (Age: 27)</p>
+        <p class="player-info-stat"><span class="player-stat-header pr1">Drafted</span>  2008: 1st Rnd, 4th by SEA</p>
+        <p class="player-info-stat"><span class="player-stat-header pr1">College</span>  UCLA</p>
+      </div>
+    </div>
 
     <ul id="scene" data-relativeInput="true">
       <li class="layer" data-depth="0.40"><img src="logo.png" alt="logo"></li>
@@ -132,7 +267,7 @@
     <script src="./parallax.min.js"></script>
     <script defer>
       var scene = document.getElementById('scene');
-    	var parallax = new Parallax(scene);
+      var parallax = new Parallax(scene);
 
       $('.player').mouseenter(function(){
         $('.player').not(this).each(function(){
