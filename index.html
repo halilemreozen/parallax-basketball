@@ -303,7 +303,7 @@
       $('.player').mouseleave(function(){
         $('.player').not(this).each(function(){
           $(this).removeClass("player--glow");
-          $(this).addClass("player--unglow");
+          $(this).addClass("player--unglow").delay(2000).removeClass("player--unglow");
         });
         $(this).removeClass("focus");
       });
