@@ -81,8 +81,8 @@
 
       }
       .player--glow{
-       /* -webkit-animation: saturate 1s, saturate-animation 3s infinite;
-        -webkit-animation-delay: 0s, 1s;*/
+      -webkit-animation: saturate 2s, saturate-animation 3s infinite;
+        -webkit-animation-delay: 0s, 2s;
 
       }
 
@@ -91,8 +91,8 @@
       }
 
       @-webkit-keyframes saturate {
-         0%{ }
-         100% {   -webkit-filter:blur(3px) saturate(20%);opacity: .5; }
+         0%{  -webkit-filter:sepia(0) saturate(100%) blur(0px);opacity:1;  }
+         100% {   -webkit-filter: sepia(1) saturate(100%) blur(3px);opacity:0.6; }
       }
 
       @-webkit-keyframes saturate-animation {
