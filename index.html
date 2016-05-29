@@ -21,6 +21,10 @@
         background-image: url("./stadium.jpg");
       }
 
+      body{
+        opacity: 0;
+      }
+
       .wrapper{
         position: absolute;
         z-index:999;
@@ -52,7 +56,7 @@
 
       }
       .player--three{
-        right:55%;
+        right:40%;
         top:20%;
       }
       .player--three img{
@@ -65,7 +69,7 @@
       }
 
       .player--four{
-        right:40%;
+        left:80%;
         top:20%;
       }
 
@@ -102,43 +106,22 @@
         -webkit-animation-delay: 0s;
       }
 
-      .move-left{
-        -webkit-animation: move 600s infinite;
+      .player--four-start-move{
+        -webkit-animation: player--four-start-move 1s  normal forwards ease-in-out;
         -webkit-animation-delay: 0s;
       }
-      @-webkit-keyframes move {
-        0%{
-          opacity:1;
-        }
-        85%{
-          opacity:1;
-        }
-        95%{
-          opacity:.5;
+
+      @-webkit-keyframes player--four-start-move {
+       0%{
+          opacity: 0;
+          transform: translate(800px,0);
         }
         100%{
-          transform: translate(calc(100vw - 143vw),0);
-          opacity:0;
+          opacity: 1;
+          transform: translate(0px,0);
         }
       }
 
-      @-webkit-keyframes fade-in {
-        0%{
-          opacity:1;
-        }
-        100%{
-          opacity:0;
-        }
-      }
-
-      @-webkit-keyframes fade-out {
-        0%{
-          opacity:0;
-        }
-        100%{
-          opacity:1;
-        }
-      }
 
       @-webkit-keyframes focus {
         0%{ -webkit-filter:sepia(0) saturate(100%) blur(0px);opacity:1;  }
@@ -343,26 +326,35 @@
          <li class="layer animation" data-depth="0.10"><img src="stadium.jpg" alt="stadium"></li>
        </div>
   
-        <div class="player player--one">
+        <div class=" player player--one">
           <li class="layer animation" data-depth="0.40"><img src="player1.png" alt="16"></li>
         </div>
-        <div class="player player--two">
+        <div class=" player player--two">
           <li class="layer animation" data-depth="0.30"><img src="player2.png" alt="15"></li>
         </div>
-        <div class="player player--three">
+        <div class=" player player--three">
           <li class="layer animation" data-depth="0.60"><img src="player3.png" alt="13"></li>
         </div>
-        <div class="move-left player player--four">
+        <div class=" player player--four">
           <li class="layer animation" data-depth="0.90"><img src="player4.png" alt="14"></li>
         </div>
       </div>
     </ul>
 
-    <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="./jquery.js"></script>
     <script src="./parallax.min.js"></script>
     <script defer>
-      var scene = document.getElementById('scene');
-      var parallax = new Parallax(scene);
+
+      $(window).on("load", function() {
+        var scene = document.getElementById('scene');
+        var parallax = new Parallax(scene);
+        $('body').css({"opacity":1});
+        $('.player--four').animate({ "left": "20%" },1000)
+        $('.player--three').animate({ "right": "35%","top":"15%" },1000)
+        $('.player--one').animate({ "left": "14%","bottom":"-70%" },1000);
+
+      });
+
 
       $('.player').mouseenter(function(){
         $('.player').not(this).each(function(){
@@ -379,6 +371,10 @@
         });
         $(this).removeClass("focus");
       });
+
+
+
+
     </script>
 
 
