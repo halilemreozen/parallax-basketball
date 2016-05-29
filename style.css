@@ -81,7 +81,7 @@ html, body {
 .stadium, .stadium li {
     width: 120%;
     height: 100%;
-    background-image: url("./test.png");
+    background-image: url("./test.jpg");
     background-size: cover;
     display: block;
     position: absolute;
